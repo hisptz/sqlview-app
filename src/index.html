@@ -3,12 +3,25 @@
 <head>
   <meta charset="utf-8">
   <title>SqlViewApp</title>
-  <base href="/">
+  <base href="">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../../../dhis-web-commons/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script>
+    window.dhis2 = window.dhis2|| {};
+    window.dhis2.settings = window.dhis2.settings || {};
+    window.dhis2.settings.baseUrl = 'training';
+  </script>
+  <script src="../../../dhis-web-commons/javascripts/jQuery/jquery.min.js"></script>
+  <script src="../../../dhis-web-commons/javascripts/dhis2/dhis2.translate.js"></script>
+  <script src="../../../dhis-web-commons/javascripts/dhis2/dhis2.menu.js"></script>
+  <script src="../../../dhis-web-commons/javascripts/dhis2/dhis2.menu.ui.js"></script>
 </head>
 <body>
+<div style="margin-top:50px">
   <app-root>Loading...</app-root>
+</div>
 </body>
 </html>

@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'sql view app works in progress!';
+  application_url = 'http://localhost:9000/training/';
 }
