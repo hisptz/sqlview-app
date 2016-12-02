@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {OrgUnitSqlService} from "./org-unit-sql.service";
+import {error} from "util";
+import {ActivatedRoute, Router,Params} from "@angular/router";
+import {Subscription} from "rxjs";
 
 
 @Component({
@@ -10,32 +13,38 @@ import {OrgUnitSqlService} from "./org-unit-sql.service";
 export class OrgUnitStructureComponent implements OnInit {
 
   orgUnitHeader:any;
-  constructor(private orgunitservice:OrgUnitSqlService) { }
+  private loading;
+  private organisationuid;
+  private subscription :Subscription
+  private selected ={
+    name:"MOH - Tanzania",id:"m0frOspS7JY", children:[]
+  }
+  constructor(private orgunitservice:OrgUnitSqlService,private  route:ActivatedRoute,private router:Router) { }
 
   ngOnInit() {
-    this.orgunitservice.getSqlFromUrl()
-      .subscribe(
-          data => {
-            this.orgUnitHeader=data
+    this.loading=true;
+    this.subscription=this.route.params.subscribe(
+      (params:any)=>{
+         let uid=params['uid'];
+          this.fetchDataBesedToUid(uid);
+           this.loading=false;
+          console.log(uid);
+        }
+       )
 
-            console.log(this.orgUnitHeader)
-            //this.orgUnitHeader.push(data.headers)
-          }
-      );
   }
-  orgunit: any;
-  //oraganisation unit configuration
-  tree_config = {
-    show_search : false,
-    multiple : false,
-    search_text : 'Search',
-    loading_message: 'Loading Organisation units...'
-  };
+fetchDataBesedToUid(uid:string){
+   this.orgunitservice.getOrgUnitSelectedUid(uid)
+     .subscribe(
+       data =>{
+           this.orgUnitHeader=data
+       },
+       error =>console.log(error.json())
+     )
+}
+ngOnDestroy(){
+  this.subscription.unsubscribe();
+}
 
-  // set selected organisation unit
-  onSelected ( selected_orgunit ) {
-    this.orgunit = selected_orgunit;
-    console.log(this.orgunit);
-  }
 
 }

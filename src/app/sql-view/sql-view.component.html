@@ -1,5 +1,13 @@
 <div class="col-md-2">
       <app-sql-left-menu></app-sql-left-menu>
+
+  <br>
+  <br>
+  <div class="container-fluid">
+    <div class="row well">
+      <ng2-dhis-org-unit-tree [tree_config]="tree_config"></ng2-dhis-org-unit-tree>
+    </div>
+  </div>
   </div>
   <div class="col-md-10">
     <router-outlet></router-outlet>

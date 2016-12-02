@@ -31,7 +31,8 @@ const actionMapping:IActionMapping = {
     (onDeactivate)="deactivate($event)"
 >
   <template #treeNodeTemplate let-node>
-    <span>{{ node.data.name }}</span>
+    
+    <span [routerLink]="['orgUnitSelected',node.data.id]">{{ node.data.name }}</span>
   </template>
 </Tree>
 `,

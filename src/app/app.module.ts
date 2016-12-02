@@ -13,6 +13,7 @@ import { SqlDatavalueComponent } from './sql-datavalue/sql-datavalue.component';
 import { DhisOrgUnitTreeComponent } from "./org-unit-tree/ng2-dhis-org-unit-tree";
 import { TreeModule } from "angular2-tree-component";
 import {OrgUnitSqlService} from "./org-unit-structure/org-unit-sql.service";
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {OrgUnitSqlService} from "./org-unit-structure/org-unit-sql.service";
     SqlViewComponent,
     OrgUnitStructureComponent,
     SqlDatavalueComponent,
-    DhisOrgUnitTreeComponent
+    DhisOrgUnitTreeComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
